@@ -6,6 +6,9 @@
 An extremely simple SMTP emailing solution for your Go Language application.
 
 ## 1. Import the package
+```
+go get github.com/hunterlong/simplemailer
+```
 ```go
 import "github.com/hunterlong/simplemailer"
 ```
@@ -13,7 +16,7 @@ import "github.com/hunterlong/simplemailer"
 ## 2. Setup SMTP Information
 ```go
 // SMTP host, port, username, password, send from address, email directory
-SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails")
+SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails")
 ```
 
 ## 3. Create 'emails' folder and create a new file called 'welcome.html'
@@ -24,12 +27,12 @@ Notice the {{USERNAME}} variable inside the HTML template. You'll be able to ins
 
 ### Send a Single Email with Variables
 ```go
-outVars := Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
-newOutgoing := Outgoing{
+outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
+newOutgoing := SimpleMailer.Outgoing{
                   Email: "info@domain.com", 
                   Subject: "SimpleMailer in Golang", 
                   Template: "welcome.html", 
                   Variables: outVars }
-sendSuccess := SendSingle(newOutgoing)
+sendSuccess := SimpleMailer.SendSingle(newOutgoing)
 // outputs true or false
 ```

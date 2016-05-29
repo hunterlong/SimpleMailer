@@ -1,4 +1,4 @@
-package simplemailer
+package SimpleMailer
 
 import (
 
