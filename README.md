@@ -75,3 +75,31 @@ bulkSend := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: 
 response := SimpleMailer.SendBulkEmails(bulkSend)
 ```
 ##### This function will send an email without variables to an array of emails
+
+
+### Full Example for Sending Single Email
+```go
+package main
+
+import (
+	"github.com/hunterlong/simplemailer"
+	"fmt"
+)
+
+func main() {
+
+	SimpleMailer.SetSMTPInfo("emailserver-hidden.com", "465", "stmpusername", "passwordhere", "info@sendfrom.com", "./emails/")
+
+	outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
+	newOutgoing := SimpleMailer.Outgoing{
+		Email: "info@sendtoemail.com",
+		Subject: "SimpleMailer in Golang",
+		Template: "welcome.html",
+		Variables: outVars }
+	sendSuccess := SimpleMailer.SendSingle(newOutgoing)
+
+	fmt.Println(sendSuccess)
+	// outputs true if it was sent, false if error
+
+}
+```
