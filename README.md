@@ -14,9 +14,9 @@ import "github.com/hunterlong/simplemailer"
 ## 2. Setup SMTP Information
 ```go
 // SMTP host, port, username, password, send from address, email directory
-SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails")
+SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails/")
 ```
-##### Be sure to set the email directory for the last parameter (./emails)
+##### Be sure to set the email directory for the last parameter (./emails/) ** Keep slash on end! **
 
 ## 3. Create 'emails' folder and create a new file called 'welcome.html'
 ```
