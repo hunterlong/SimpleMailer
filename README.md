@@ -1,6 +1,8 @@
 # SimpleMailer
 #### KISS principle SMTP emailing solution that allows variables and template HTML emails.
 
+[![Build Status](https://travis-ci.org/Hunterlong/SimpleMailer.svg?branch=master)](https://travis-ci.org/Hunterlong/SimpleMailer)  [![Code Climate](https://codeclimate.com/github/Hunterlong/SimpleMailer/badges/gpa.svg)](https://codeclimate.com/github/Hunterlong/SimpleMailer)  [![Coverage Status](https://coveralls.io/repos/github/Hunterlong/SimpleMailer/badge.svg?branch=master)](https://coveralls.io/github/Hunterlong/SimpleMailer?branch=master)
+
 An extremely simple SMTP emailing solution for your Go Language application.
 
 ## 1. Import the package
