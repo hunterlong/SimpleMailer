@@ -29,10 +29,39 @@ Notice the {{USERNAME}} variable inside the HTML template. You'll be able to ins
 ```go
 outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
 newOutgoing := SimpleMailer.Outgoing{
-                  Email: "info@domain.com", 
-                  Subject: "SimpleMailer in Golang", 
-                  Template: "welcome.html", 
-                  Variables: outVars }
+                    Email: "info@domain.com", 
+                    Subject: "SimpleMailer in Golang", 
+                    Template: "welcome.html", 
+                    Variables: outVars }
 sendSuccess := SimpleMailer.SendSingle(newOutgoing)
 // outputs true or false
 ```
+
+
+### Send a Multiple Emails with Variables
+```go
+var newOutgoing []Outgoing
+
+outVars := Variables{map[string]interface{}{"USERNAME":"billy", "DIFFICULTY": "simple"}}
+newOutgoingMessage := Outgoing{Email: "firstuser@domain.com", Subject: "Welcome Email", Template: "welcome.html", Variables: outVars}
+newOutgoing = append(newOutgoing, newOutgoingMessage)
+
+secondoutVars := Variables{map[string]interface{}{"USERNAME":"l33tguy", "DIFFICULTY": "super easy"}}
+secondnewOutgoingMessage := Outgoing{Email: "firstuser@domain.com", Subject: "Welcome Email", Template: "welcome.html", Variables: secondoutVars}
+newOutgoing = append(newOutgoing, secondnewOutgoingMessage)
+
+// here is where you send multiple emails from a Outgoing array
+responses := SendMultiple(newOutgoing)
+
+for _,successSend := range responses {
+	userEmail := successSend["email"]
+	sentStatus := successSend["status"].(bool)
+
+	if sentStatus {
+		t.Log("Email to "+userEmail.(string)+" was successfully sent")
+	} else {
+		t.Log("ERROR - Email to "+userEmail.(string)+" was not able to send")
+	}
+}
+```
+

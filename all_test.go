@@ -29,8 +29,11 @@ func TestMultipleEmails(t *testing.T){
 
 	outVars := Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
 	newOutgoingMessage := Outgoing{Email: "info@socialeck.com", Subject: "Welcome Email", Template: "welcome.html", Variables: outVars}
-
 	newOutgoing = append(newOutgoing, newOutgoingMessage)
+
+	secondoutVars := Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "super easy"}}
+	secondnewOutgoingMessage := Outgoing{Email: "djzebular@gmail.com", Subject: "Welcome Email", Template: "welcome.html", Variables: secondoutVars}
+	newOutgoing = append(newOutgoing, secondnewOutgoingMessage)
 
 	responses := SendMultiple(newOutgoing)
 
