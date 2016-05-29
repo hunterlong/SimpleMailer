@@ -16,6 +16,7 @@ import "github.com/hunterlong/simplemailer"
 // SMTP host, port, username, password, send from address, email directory
 SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails")
 ```
+##### Be sure to set the email directory for the last parameter (./emails)
 
 ## 3. Create 'emails' folder and create a new file called 'welcome.html'
 ```
@@ -38,18 +39,18 @@ sendSuccess := SimpleMailer.SendSingle(newOutgoing)
 
 ### Send a Multiple Emails with Variables
 ```go
-var newOutgoing []Outgoing
+var newOutgoing []SimpleMailer.Outgoing
 
-outVars := Variables{map[string]interface{}{"USERNAME":"billy", "DIFFICULTY": "simple"}}
-newOutgoingMessage := Outgoing{Email: "firstuser@domain.com", Subject: "Welcome Email", Template: "welcome.html", Variables: outVars}
+outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"billy", "DIFFICULTY": "simple"}}
+newOutgoingMessage := SimpleMailer.Outgoing{Email: "firstuser@domain.com", Subject: "Welcome Email", Template: "welcome.html", Variables: outVars}
 newOutgoing = append(newOutgoing, newOutgoingMessage)
 
-secondoutVars := Variables{map[string]interface{}{"USERNAME":"l33tguy", "DIFFICULTY": "super easy"}}
-secondnewOutgoingMessage := Outgoing{Email: "firstuser@domain.com", Subject: "Welcome Email", Template: "welcome.html", Variables: secondoutVars}
+secondoutVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"l33tguy", "DIFFICULTY": "super easy"}}
+secondnewOutgoingMessage := SimpleMailer.Outgoing{Email: "firstuser@domain.com", Subject: "Welcome Email", Template: "welcome.html", Variables: secondoutVars}
 newOutgoing = append(newOutgoing, secondnewOutgoingMessage)
 
 // here is where you send multiple emails from a Outgoing array
-responses := SendMultiple(newOutgoing)
+responses := SimpleMailer.SendMultiple(newOutgoing)
 
 for _,successSend := range responses {
 	userEmail := successSend["email"]
