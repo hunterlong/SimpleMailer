@@ -7,3 +7,8 @@ An extremely simple SMTP emailing solution for your Go Language application.
 ```
 import "github.com/hunterlong/simplemailer"
 ```
+
+## Setup SMTP Information
+```
+SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails")
+```
