@@ -19,6 +19,12 @@ type Variables struct {
 	Inputs map[string]interface{}
 }
 
+type BulkSend struct {
+	Emails []string
+	Subject string
+	Template string
+}
+
 type Outgoing struct {
 	Email string
 	Subject string
@@ -42,6 +48,19 @@ func SendSingle(outgoing Outgoing) bool {
 	chk := SendEmail(outgoing)
 	return chk
 }
+
+
+func SendBulkEmails(outgoing BulkSend) []map[string]interface{} {
+	var response []map[string]interface{}
+	for _,sendEmail := range outgoing.Emails {
+		sendSingle := Outgoing{Email: sendEmail, Subject: outgoing.Subject, Template: outgoing.Template, Variables: Variables{}}
+		success := SendEmail(sendSingle)
+		thisResponse := map[string]interface{}{"email": sendEmail, "status": success}
+		response = append(response, thisResponse)
+	}
+	return response
+}
+
 
 func SendMultiple(outgoing []Outgoing) []map[string]interface{} {
 

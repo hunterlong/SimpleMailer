@@ -37,7 +37,7 @@ sendSuccess := SimpleMailer.SendSingle(newOutgoing)
 ```
 
 
-### Send a Multiple Emails with Variables
+### Send Multiple Emails with Variables
 ```go
 var newOutgoing []SimpleMailer.Outgoing
 
@@ -64,3 +64,12 @@ for _,successSend := range responses {
 }
 ```
 
+
+### Send Multiple Emails without Variables
+```go
+allEmails := []string{"info@socialeck.com", "djzebular@gmail.com", "hey@gmail.com"}
+bulkSend := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "welcome.html"}
+
+response := SendBulkEmails(bulkSend)
+```
+##### This function will send an email without variables to an array of emails

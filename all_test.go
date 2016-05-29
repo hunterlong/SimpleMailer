@@ -49,3 +49,16 @@ func TestMultipleEmails(t *testing.T){
 	}
 
 }
+
+
+func TestSendMultipleNoVars(t *testing.T){
+	allEmails := []string{"info@socialeck.com", "djzebular@gmail.com", "hey@gmail.com"}
+	output := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "welcome.html"}
+
+	response := SendBulkEmails(output)
+
+	for _,email := range response {
+		t.Log(email)
+	}
+
+}
