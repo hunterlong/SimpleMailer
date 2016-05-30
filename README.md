@@ -27,6 +27,9 @@ SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "pa
 ```
 ##### Be sure to set the email directory for the last parameter (./emails/) ** Keep slash on end! **
 
+![alt tag](http://pichoster.net/images/2016/05/30/githubbreakerJKAya.jpg)
+
+
 ### Send a Single Email with Variables
 ```go
 outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
