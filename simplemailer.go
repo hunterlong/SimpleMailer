@@ -11,6 +11,7 @@ type Config struct {
 	SMTPuser string
 	SMTPpass string
 	SMTPhost string
+	SMTPname string
 	SMTPfrom string
 	SMTPport string
 	EmailsDir string
@@ -39,11 +40,12 @@ type Outgoing struct {
 
 // function to set the SMTP login information and email directory
 // be sure to leave forward slash on end of email directory
-func SetSMTPInfo(host string, port string, user string, password string, fromAddress string, emailsDir string){
+func SetSMTPInfo(host string, port string, user string, password string, fromName string, fromAddress string, emailsDir string){
 	 configs = Config{
 		 SMTPhost: host,
 		 SMTPuser: user,
 		 SMTPpass: password,
+		 SMTPname: fromName,
 		 SMTPfrom: fromAddress,
 		 SMTPport: port,
 		 EmailsDir: emailsDir }

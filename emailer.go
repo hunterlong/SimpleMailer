@@ -17,7 +17,7 @@ import (
 // this function is ran multiple times in some scripts
 func SendEmail(outgoingEmail Outgoing) bool {
 		email_html, err := ioutil.ReadFile(configs.EmailsDir + outgoingEmail.Template)
-		from := mail.Address{"", configs.SMTPfrom}
+		from := mail.Address{configs.SMTPname, configs.SMTPfrom}
 		to := mail.Address{"", outgoingEmail.Email}
 		subj := outgoingEmail.Subject
 		body := string(email_html)

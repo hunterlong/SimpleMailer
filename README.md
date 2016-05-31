@@ -22,8 +22,8 @@ Notice the {{USERNAME}} variable inside the HTML template. You'll be able to ins
 
 ## 3. Setup SMTP Information
 ```go
-// SMTP host, port, username, password, send from address, email directory
-SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "from@domain.com", "./emails/")
+// SMTP host, port, username, password, name, send from address, email directory
+SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "Sender Name", "from@domain.com", "./emails/")
 ```
 ##### Be sure to set the email directory for the last parameter (./emails/) ** Keep slash on end! **
 
@@ -93,7 +93,7 @@ import (
 
 func main() {
 
-	SimpleMailer.SetSMTPInfo("emailserver-hidden.com", "465", "stmpusername", "passwordhere", "info@sendfrom.com", "./emails/")
+	SimpleMailer.SetSMTPInfo("emailserver-hidden.com", "465", "stmpusername", "passwordhere", "Sender Name", "info@sendfrom.com", "./emails/")
 
 	outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
 	newOutgoing := SimpleMailer.Outgoing{
