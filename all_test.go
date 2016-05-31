@@ -53,7 +53,7 @@ func TestMultipleEmails(t *testing.T){
 
 func TestSendMultipleNoVars(t *testing.T){
 	allEmails := []string{"info@socialeck.com", "djzebular@gmail.com", "hey@gmail.com"}
-	output := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "welcome.html"}
+	output := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "bulk.html"}
 
 	response := SendBulkEmails(output)
 

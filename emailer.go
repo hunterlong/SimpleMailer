@@ -32,7 +32,7 @@ func SendEmail(outgoingEmail Outgoing) bool {
 			message += fmt.Sprintf("%s: %s\r\n", k, v)
 		}
 		newbody := ReplaceContentText(outgoingEmail.Variables.Inputs, body)
-		message += newbody
+		message += "\n"+newbody
 		fmt.Println(message)
 		servername := configs.SMTPhost+":"+configs.SMTPport
 		host, _, _ := net.SplitHostPort(servername)
