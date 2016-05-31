@@ -108,3 +108,8 @@ func main() {
 
 }
 ```
+
+### Google Gmail SMTP info
+```go
+SimpleMailer.SetSMTPInfo("smtp.gmail.com", "465", "<gmail email>", "<gmail apssword>", "<gmail email>", "./emails/")
+```
