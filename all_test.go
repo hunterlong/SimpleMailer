@@ -7,7 +7,7 @@ import (
 )
 
 func TestSetSMTPInfo(t *testing.T){
-	SetSMTPInfo(os.Getenv("host"), os.Getenv("port"), os.Getenv("user"), os.Getenv("password"), "\"EVE Business\" <info@eve-business.com>", "./emails/")
+	SetSMTPInfo(os.Getenv("host"), os.Getenv("port"), os.Getenv("user"), os.Getenv("password"), os.Getenv("from"), "./emails/")
 	t.Log("Set SMTP information and Email directory \n")
 }
 
