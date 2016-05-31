@@ -12,6 +12,8 @@ import (
 )
 
 
+// function to send an email with TLS and PlainAuth
+// this function is ran multiple times in some scripts
 func SendEmail(outgoingEmail Outgoing) bool {
 		email_html, err := ioutil.ReadFile(configs.EmailsDir + outgoingEmail.Template)
 		from := mail.Address{"", configs.SMTPfrom}
@@ -77,7 +79,9 @@ func SendEmail(outgoingEmail Outgoing) bool {
 }
 
 
-
+// function to replace variables as: {{USERNAME}} to USERNAME
+// inside the html template. input as array of
+// {"USERNAME": "gopher"}
 func ReplaceContentText(array map[string]interface{}, content string) string {
 	var newmeailstring string
 	newmeailstring = content
