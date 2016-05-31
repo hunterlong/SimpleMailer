@@ -26,7 +26,7 @@ func SendEmail(outgoingEmail Outgoing) bool {
 		headers["To"] = to.String()
 		headers["Subject"] = subj
 		headers["Date"] = time.Now().Format(time.RFC1123Z)
-		message := ""
+		var message string
 		for k, v := range headers {
 			message += fmt.Sprintf("%s: %s\r\n", k, v)
 		}
