@@ -9,6 +9,7 @@ import (
 	"crypto/tls"
 	"io/ioutil"
 	"strings"
+	"time"
 )
 
 
@@ -24,12 +25,14 @@ func SendEmail(outgoingEmail Outgoing) bool {
 		headers["From"] = from.String()
 		headers["To"] = to.String()
 		headers["Subject"] = subj
+		headers["Date"] = time.Now().Format(time.RFC1123Z)
 		message := ""
 		for k, v := range headers {
 			message += fmt.Sprintf("%s: %s\r\n", k, v)
 		}
 		newbody := ReplaceContentText(outgoingEmail.Variables.Inputs, body)
 		message += newbody
+		fmt.Println(message)
 		servername := configs.SMTPhost+":"+configs.SMTPport
 		host, _, _ := net.SplitHostPort(servername)
 		auth := smtp.PlainAuth("", configs.SMTPuser, configs.SMTPpass, host)
@@ -64,7 +67,7 @@ func SendEmail(outgoingEmail Outgoing) bool {
 			return false
 			log.Panic(err)
 		}
-		_, err = w.Write([]byte("\r\n"+message))
+		_, err = w.Write([]byte(message))
 		if err != nil {
 			return false
 			log.Panic(err)
