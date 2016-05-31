@@ -24,7 +24,7 @@ func SendEmail(outgoingEmail Outgoing) bool {
 		headers["From"] = from.String()
 		headers["To"] = to.String()
 		headers["Subject"] = subj
-		message := ""
+		message := "\r\n"
 		for k, v := range headers {
 			message += fmt.Sprintf("%s: %s\r\n", k, v)
 		}
