@@ -49,7 +49,15 @@ func SetSMTPInfo(host string, port string, user string, password string, fromNam
 		 SMTPfrom: fromAddress,
 		 SMTPport: port,
 		 EmailsDir: emailsDir }
- }
+}
+
+
+
+func main() {
+
+
+
+}
 
 
 // function to send a single email from Outgoing struct

@@ -33,7 +33,7 @@ func SendEmail(outgoingEmail Outgoing) bool {
 		}
 		newbody := ReplaceContentText(outgoingEmail.Variables.Inputs, body)
 		message += "\n"+newbody
-	fmt.Println(message)
+		fmt.Println("Sending Email using template '"+outgoingEmail.Template+"' to email: "+to.String())
 		servername := configs.SMTPhost+":"+configs.SMTPport
 		host, _, _ := net.SplitHostPort(servername)
 		auth := smtp.PlainAuth("", configs.SMTPuser, configs.SMTPpass, host)
