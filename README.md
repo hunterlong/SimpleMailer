@@ -42,7 +42,7 @@ sendSuccess := SimpleMailer.SendSingle(newOutgoing)
 fmt.Println(sendSuccess)
 // outputs true or false
 ```
-
+####### This will replace {{USERNAME}} in your HTML template to 'gophers'
 
 ### Send Multiple Emails with Variables
 ```go
@@ -74,7 +74,7 @@ for _,successSend := range responses {
 
 ### Send Multiple Emails without Variables
 ```go
-allEmails := []string{"info@socialeck.com", "djzebular@gmail.com", "hey@gmail.com"}
+allEmails := []string{"info@emaildomain.com", "noreply@nodomain.com", "hey@gmail.com"}
 bulkSend := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "welcome.html"}
 
 response := SimpleMailer.SendBulkEmails(bulkSend)
@@ -111,7 +111,17 @@ func main() {
 
 ### Google Gmail SMTP info
 ```go
-SimpleMailer.SetSMTPInfo("smtp.gmail.com", "465", "<gmail email>", "<gmail apssword>", "<gmail email>", "./emails/")
+SimpleMailer.SetSMTPInfo("smtp.gmail.com", "465", "<gmail email>", "<gmail password>", "Sender Name", "<gmail email>", "./emails/")
+```
+
+### Yahoo Mail SMTP info
+```go
+SimpleMailer.SetSMTPInfo("smtp.mail.yahoo.com", "465", "<yahoo email>", "<yahoo password>", "Sender Name", "<yahoo email>", "./emails/")
+```
+
+### Outlook Office 365 SMTP info
+```go
+SimpleMailer.SetSMTPInfo("smtp.office365.com", "587", "<outlook email>", "<outlook password>", "Sender Name", "<outlook email>", "./emails/")
 ```
 
 
