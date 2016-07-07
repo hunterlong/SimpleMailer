@@ -113,3 +113,15 @@ func main() {
 ```go
 SimpleMailer.SetSMTPInfo("smtp.gmail.com", "465", "<gmail email>", "<gmail apssword>", "<gmail email>", "./emails/")
 ```
+
+
+### Awesome HTML Email Templates
+https://github.com/leemunroe/responsive-html-email-template
+
+https://github.com/mailgun/transactional-email-templates
+
+https://github.com/mailchimp/email-blueprints
+
+https://github.com/InterNations/antwort
+
+https://github.com/g13nn/Email-Framework
