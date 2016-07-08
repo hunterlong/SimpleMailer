@@ -6,6 +6,16 @@ go:
   - 1.6
   - tip
 
+branches:
+  only:
+    - master
+
+matrix:
+  include:
+    - os: linux
+      env: GIMME_OS=windows; GIMME_ARCH=amd64;
+    - os: osx
+
 addons:
     code_climate:
         repo_token: 64d8bbfe5006b7cd592f90c814d3c48f8b523f2491ee133dd65cb81834bc127b
