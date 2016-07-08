@@ -5,15 +5,6 @@ go:
   - 1.5
   - 1.6
 
-branches:
-  only:
-    - master
-
-matrix:
-  include:
-    - os: linux
-    - os: osx
-
 addons:
     code_climate:
         repo_token: 64d8bbfe5006b7cd592f90c814d3c48f8b523f2491ee133dd65cb81834bc127b
