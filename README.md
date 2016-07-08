@@ -75,7 +75,7 @@ for _,successSend := range responses {
 ### Send Multiple Emails without Variables
 ```go
 allEmails := []string{"info@emaildomain.com", "noreply@nodomain.com", "hey@gmail.com"}
-bulkSend := BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "welcome.html"}
+bulkSend := SimpleMailer.BulkSend{Emails: allEmails, Subject: "Hello Bulk Sender", Template: "welcome.html"}
 
 response := SimpleMailer.SendBulkEmails(bulkSend)
 ```

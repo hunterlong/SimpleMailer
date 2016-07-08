@@ -4,7 +4,6 @@ sudo: false
 go:
   - 1.5
   - 1.6
-  - tip
 
 branches:
   only:
@@ -13,7 +12,6 @@ branches:
 matrix:
   include:
     - os: linux
-      env: GIMME_OS=windows; GIMME_ARCH=amd64;
     - os: osx
 
 addons:

@@ -7,7 +7,7 @@ import (
 
 func main() {
 
-	SimpleMailer.SetSMTPInfo("emailserveraddress.com", "465", "info@domain.com", "passwordhere", "Sender Name", "from@domain.com", "./emails/")
+	SimpleMailer.SetSMTPInfo("emailserver-hidden.com", "465", "stmpusername", "passwordhere", "Sender Name", "info@sendfrom.com", "./emails/")
 
 	outVars := SimpleMailer.Variables{map[string]interface{}{"USERNAME":"gophers", "DIFFICULTY": "simple"}}
 	newOutgoing := SimpleMailer.Outgoing{
