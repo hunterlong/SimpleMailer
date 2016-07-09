@@ -52,14 +52,6 @@ func SetSMTPInfo(host string, port string, user string, password string, fromNam
 }
 
 
-
-func main() {
-
-
-
-}
-
-
 // function to send a single email from Outgoing struct
 func SendSingle(outgoing Outgoing) bool {
 	chk := SendEmail(outgoing)

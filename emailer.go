@@ -45,39 +45,39 @@ func SendEmail(outgoingEmail Outgoing) bool {
 		conn, err := tls.Dial("tcp", servername, tlsconfig)
 		if err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		c, err := smtp.NewClient(conn, host)
 		if err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		if err = c.Auth(auth); err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		if err = c.Mail(from.Address); err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		if err = c.Rcpt(to.Address); err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		w, err := c.Data()
 		if err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		_, err = w.Write([]byte(message))
 		if err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		err = w.Close()
 		if err != nil {
 			return false
-			log.Panic(err)
+			panic(err)
 		}
 		c.Quit()
 	return true
