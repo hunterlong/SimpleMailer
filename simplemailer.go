@@ -1,9 +1,5 @@
 package SimpleMailer
 
-import (
-
-)
-
 var configs Config
 
 // configs for SMTP login information and email template directory

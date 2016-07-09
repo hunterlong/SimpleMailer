@@ -2,7 +2,6 @@ package SimpleMailer
 
 import (
 	"fmt"
-	"log"
 	"net"
 	"net/mail"
 	"net/smtp"
