@@ -64,7 +64,7 @@ func TestSendMultipleNoVars(t *testing.T){
 }
 
 
-func TestCheckErrors(t *testing.T){
-	error := ""
-	checkErr(error)
-}
+//func TestCheckErrors(t *testing.T){
+//	error := ""
+//	checkErr(error)
+//}
